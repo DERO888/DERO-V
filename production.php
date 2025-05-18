@@ -1,21 +1,25 @@
-<?php
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="robots" content="noindex">
 
-/*
- |--------------------------------------------------------------------------
- | ERROR DISPLAY
- |--------------------------------------------------------------------------
- | Don't show ANY in production environments. Instead, let the system catch
- | it and display a generic error message.
- */
-ini_set('display_errors', '0');
-error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED & ~E_STRICT & ~E_USER_NOTICE & ~E_USER_DEPRECATED);
+	<title>Whoops!</title>
 
-/*
- |--------------------------------------------------------------------------
- | DEBUG MODE
- |--------------------------------------------------------------------------
- | Debug mode is an experimental flag that can allow changes throughout
- | the system. It's not widely used currently, and may not survive
- | release of the framework.
- */
-defined('CI_DEBUG') || define('CI_DEBUG', false);
+	<style type="text/css">
+		<?= preg_replace('#[\r\n\t ]+#', ' ', file_get_contents(__DIR__ . DIRECTORY_SEPARATOR . 'debug.css')) ?>
+	</style>
+</head>
+<body>
+
+	<div class="container text-center">
+
+		<h1 class="headline">Whoops!</h1>
+
+		<p class="lead">We seem to have hit a snag. Please try again later...</p>
+
+	</div>
+
+</body>
+
+</html>
