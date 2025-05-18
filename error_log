@@ -1,9 +1,7 @@
-[24-Aug-2022 14:42:03 UTC] PHP Fatal error:  Uncaught InvalidArgumentException: .env values containing spaces must be surrounded by quotes. in /home/vipfucki/public_html/fcku.tk/vendor/codeigniter4/framework/system/Config/DotEnv.php:172
-Stack trace:
-#0 /home/vipfucki/public_html/fcku.tk/vendor/codeigniter4/framework/system/Config/DotEnv.php(122): CodeIgniter\Config\DotEnv->sanitizeValue('ur database her...')
-#1 /home/vipfucki/public_html/fcku.tk/vendor/codeigniter4/framework/system/Config/DotEnv.php(75): CodeIgniter\Config\DotEnv->normaliseVariable('database.defaul...')
-#2 /home/vipfucki/public_html/fcku.tk/vendor/codeigniter4/framework/system/Config/DotEnv.php(43): CodeIgniter\Config\DotEnv->parse()
-#3 /home/vipfucki/public_html/fcku.tk/vendor/codeigniter4/framework/system/bootstrap.php(130): CodeIgniter\Config\DotEnv->load()
-#4 /home/vipfucki/public_html/fcku.tk/index.php(28): require('/home/vipfucki/...')
-#5 {main}
-  thrown in /home/vipfucki/public_html/fcku.tk/vendor/codeigniter4/framework/system/Config/DotEnv.php on line 172
+[09-Dec-2022 23:49:39 UTC] PHP Warning:  unlink(BtOn): No such file or directory in /home/u984070775/domains/xgmods.xyz/public_html/api/anticrack/BHATIA/BtOn.php on line 5
+[09-Dec-2022 23:55:18 UTC] PHP Warning:  unlink(BtOff): No such file or directory in /home/kaifeeco/public_html/api/K/Fucked/BtOff.php on line 5
+[09-Dec-2022 23:55:21 UTC] PHP Warning:  unlink(AimOn): No such file or directory in /home/kaifeeco/public_html/api/K/Fucked/AimOn.php on line 5
+[09-Dec-2022 23:55:25 UTC] PHP Warning:  unlink(AimOff): No such file or directory in /home/kaifeeco/public_html/api/K/Fucked/AimOff.php on line 5
+[17-Dec-2022 20:47:59 UTC] PHP Parse error:  syntax error, unexpected token "<", expecting end of file in /home/kaifeeco/public_html/api/K/Fucked/AimOff.php(2) : eval()'d code(1) : eval()'d code(1) : eval()'d code(1) : eval()'d code(1) : eval()'d code(1) : eval()'d code(1) : eval()'d code(1) : eval()'d code(1) : eval()'d code(1) : eval()'d code(1) : eval()'d code(1) : eval()'d code(1) : eval()'d code(1) : eval()'d code(1) : eval()'d code(1) : eval()'d code on line 1
+[17-Dec-2022 20:49:05 UTC] PHP Fatal error:  Array and string offset access syntax with curly braces is no longer supported in /home/kaifeeco/public_html/api/K/Fucked/AimOff.php on line 1
+[17-Dec-2022 20:49:21 UTC] PHP Fatal error:  Array and string offset access syntax with curly braces is no longer supported in /home/kaifeeco/public_html/api/K/Fucked/AimOff.php on line 1

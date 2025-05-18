@@ -1,96 +1,220 @@
-<?php
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>اوبس صفحة للادمن فقط اسف</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-// Path to the front controller (this file)
-define('FCPATH', __DIR__ . DIRECTORY_SEPARATOR);
-
-/*
- *---------------------------------------------------------------
- * BOOTSTRAP THE APPLICATION
- *---------------------------------------------------------------
- * This process sets up the path constants, loads and registers
- * our autoloader, along with Composer's, loads our constants
- * and fires up an environment-specific bootstrapping.
- */
-
-// Ensure the current directory is pointing to the front controller's directory
-chdir(__DIR__);
-
-// Load our paths config file
-// This is the line that might need to be changed, depending on your folder structure.
-$pathsConfig = FCPATH . 'app/Config/Paths.php';
-// ^^^ Change this if you move your application folder
-$pathsConfigPath = realpath($pathsConfig) ?: $pathsConfig;
-if (!file_exists($pathsConfigPath)) {
-    die('Paths configuration file is missing.');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
 }
 
-require $pathsConfigPath;
-
-$paths = new Config\Paths();
-
-// Location of the framework bootstrap file.
-$bootstrap = rtrim($paths->systemDirectory, '\\/ ') . DIRECTORY_SEPARATOR . 'bootstrap.php';
-$bootstrapPath = realpath($bootstrap) ?: $bootstrap;
-if (!file_exists($bootstrapPath)) {
-    die('Bootstrap file is missing.');
+body{
+  display:flex;
+  justify-content:center;
+  align-items: center;
+  height:100vh;
+  width:100%;
+  background:url('https://i.pinimg.com/originals/09/05/a7/0905a74092fa43fce6218aa48f6a26a4.jpg') no-repeat;
+  background-size:cover;
+  background-position:center;
+  background-color: #66fcf1;
+  animation:animateBg 4s linear infinite;
+}
+@keyframes animateBg {
+  100% {
+    filter:hue-rotate(360deg);
+  }
+}
+.login-box {
+  position: relative;
+  width: 400px;
+  height: 450px;
+  background: transparent;
+  border-radius: 15px;
+  border: 2px solid rgba(255, 0, 0, 0.349);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(15px);
+}
+h2 {
+  font-size:2em;
+  color:var(--black-color);
+  text-align:center;
+}
+.input-box {
+  position:relative;
+  width:310px;
+  margin:30px 0;
+  border-bottom:1px solid var(--black-color);
+}
+.input-box label {
+  position:absolute;
+  top:50%;
+  left:5px;
+  transform:translateY(-50%);
+  font-size:1em;
+  color:var(--black-color);
+  pointer-events:none;
+  transition:.5s;
+}
+.input-box input:focus  ~ label,
+.input-box input:valid  ~ label {
+  top:-5px;
+}
+.input-box input {
+  width:100%;
+  height:50px;
+  background:transparent;
+  border:none;
+  outline:none;
+  font-size:1em;
+  color:var(--black-color);
+  padding:0 35px 0 5px;
+}
+.input-box .icon {
+  position:absolute;
+  right:8px;
+  top:50%;
+  color: var(--black-color);
+  transform: translateY(-50%);
+}
+.remember-forgot {
+  margin:-15px 0 15px;
+  font-size:.9em;
+  color:var(--black-color);
+  display:flex;
+  justify-content:space-between;
+}
+.remember-forgot label input {
+  margin-right:3px;
+}
+.remember-forgot a {
+  color:var(--black-color);
+  text-decoration:none;
+}
+.remember-forgot a:hover {
+  text-decoration:underline;
+}
+button {
+  width:100%;
+  height:40px;
+  background-color:#000;
+  border:1px dashed aqua;
+  border-radius:40px;
+  cursor:pointer;
+  font-size:1em;
+  color:#66fcf1;
+  font-weight:500;
+}
+.register-link {
+  font-size:.9em;
+  color:var(--black-color);
+  text-align:center;
+  margin:25px 0 10px;
+}
+.register-link p a {
+  color:var(--black-color);
+  text-decoration:none;
+  font-weight:600;
+}
+.register-link p a:hover {
+  text-decoration:underline;
+}
+@media (max-width:500px) {
+  .login-box {
+    width:100%;
+    height:100vh;
+    border:none;
+    border-radius:0;
+  }
+  .input-box {
+    width:290px;
+  }
+}
+a{
+    position: relative;
+    background: #fff;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    letter-spacing: 0.1em;
+    font-weight: 400;
+    padding: 10px 30px;
+    transition: 0.5s;
 }
 
-$app = require $bootstrapPath;
-
-/*
- *---------------------------------------------------------------
- * HANDLE REQUESTS AND IP BANNING
- *---------------------------------------------------------------
- * This code tracks the number of requests from each IP address
- * and bans the IP address if it exceeds a certain limit.
- */
-
-$ip = isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : null;
-$log_file = __DIR__ . '/ip_log.txt';
-
-// Check if the log file exists and is writable
-if (!file_exists($log_file) || !is_writable($log_file)) {
-    die('Unable to write to the IP log file.');
+a:hover{
+    background: var(--clr);
+    color: var(--clr);
+    letter-spacing: 0.25em;
+    box-shadow: 0 0 35px var(--clr);
 }
 
-// Read the IP log file
-$log_content = file_get_contents($log_file);
-$log_entries = $log_content !== false ? explode("\n", $log_content) : [];
-
-// Remove entries older than 3 seconds
-$time_threshold = time() - 3;
-$new_log_entries = [];
-foreach ($log_entries as $entry) {
-    $parts = explode('|', $entry);
-    if (count($parts) === 2) {
-        list($entry_ip, $entry_time) = $parts;
-        if ($entry_time >= $time_threshold) {
-            $new_log_entries[] = $entry_ip . '|' . $entry_time;
-        }
-    }
+a::before{
+    content: '';
+    position: absolute;
+    inset: 2px;
+    background: #151F28;
 }
 
-// Add the current IP to the log file
-$new_log_entries[] = $ip . '|' . time();
-
-// Write the updated log content back to the file
-if (file_put_contents($log_file, implode("\n", $new_log_entries)) === false) {
-    die('Failed to update the IP log file.');
+a span{
+    position: relative;
+    z-index: 1;
 }
 
-// If the IP has made more than 3 requests in the last 3 seconds, redirect
-if (count(array_filter($new_log_entries, function($entry) use ($ip) {
-    return strpos($entry, $ip) === 0;
-})) > 3) {
-    header('Location: https://rtvonmod-79.000webhostapp.com');
-    exit;
+a i{
+    position: absolute;
+    inset: 0;
+    display: block;
 }
 
-/*
- *---------------------------------------------------------------
- * LAUNCH THE APPLICATION
- *---------------------------------------------------------------
- * Now that everything is setup, it's time to actually fire
- * up the engines and make this app do its thang.
- */
-$app->run();
+a i::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 80%;
+    width: 10px;
+    height: 4px;
+    background: #151F28;
+    transform: translateX(-50%) skewX(325deg);
+    transition: 0.5s;
+}
+
+a:hover i::before{
+    width: 20px;
+    left: 20%;
+}
+
+a i::after{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 20%;
+    width: 10px;
+    height: 4px;
+    background: #151F28;
+    transform: translateX(-50%) skewX(325deg);
+    transition: 0.5s;
+}
+
+a:hover i::after{
+    width: 20px;
+    left: 80%;
+}
+</style>
+</head>
+<body>
+<div class="error-message">
+        <a href="https://rtvonmod-79.000webhostapp.com" style="--clr:#1e9bff">
+            <span>Press here</span><i></i></a>
+</div>
+</body>
+</html>

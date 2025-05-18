@@ -1,126 +1,114 @@
-:root {
-  --color-text-primary: #c9d1d9;
-  --color-bg-canvas: #0d1117;
-  --color-bg-primary: #161b22;
-}
-
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap");
 * {
-  box-sizing: border-box;
-  padding: 0;
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Quicksand", sans-serif;
 }
-
 body {
-  background-color: var(--color-bg-canvas);
-  color: var(--color-text-primary);
-  height: 100vh;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI";
-}
-
-#loginbox {
-  margin: auto;
-  margin-top: 5vh;
-  background-color: var(--color-bg-primary);
-  padding: 20px;
-  font-size: 14px;
-  border-radius: 6px;
-  -webkit-border-radius: 6px;
-  -moz-border-radius: 6px;
-  -ms-border-radius: 6px;
-  -o-border-radius: 6px;
-  width: 88%;
-  max-width: 340px;
-  display: block;
-  border: #21262d 1px solid;
-}
-
-.logo svg {
-  margin: auto;
-  display: block;
-}
-
-#login .header {
-  margin-top: 6vh;
-}
-
-#login .header h1 {
-  margin-top: 20px;
-  text-align: center;
-  color: var(--color-text-primary);
-  font-weight: 300;
-}
-
-input[type="text"],
-input[type="password"],
-input[type="password2"],
-input[type="referral"],
-input[type="submit"] {
-  margin-top: 5px;
-  margin-bottom: 15px;
-  display: block;
-  width: 100%;
-
-  padding: 5px 12px;
-  font-size: 14px;
-  line-height: 20px;
-  color: var(--color-text-primary);
-  vertical-align: middle;
-  background-color: var(--color-bg-canvas);
-  background-repeat: no-repeat;
-  background-position: right 8px center;
-  border: 1px solid #30363d;
-  border-radius: 6px;
-  outline: none;
-}
-
-input[type="text"]:focus,
-input[type="password"]:focus {
-  border-color: #1f6feb;
-  box-shadow: rgb(12, 45, 107) 0px 0px 0px 3px;
-  outline: none;
-}
-
-input[type="submit"] {
-  color: white;
-  background-color: #238636;
-}
-
-input[type="submit"]:hover {
-  background-color: #2ea043;
-  border-color: #f0f6fc1a;
-}
-
-#login p {
-  padding: 15px 20px;
-  text-align: center;
-  border: 1px solid #6e768166;
-  border-radius: 6px;
-  width: 88%;
-  margin: auto;
-  margin-top: 20px;
-  max-width: 340px;
-}
-
-a {
-  color: #58a6ff;
-  text-decoration: none;
-}
-
-footer {
-  margin: auto;
-  margin-top: 50px;
-  width: 88%;
-  max-width: 340px;
-}
-
-ul {
   display: flex;
-  flex-wrap: nowrap;
-  flex-direction: row;
-  justify-content: space-evenly;
-  font-size: 14px;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #111;
+  width: 100%;
+  overflow: hidden;
 }
-
-li {
-  list-style: none !important;
+.ring {
+  position: relative;
+  width: 450px;
+  height: 450px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.ring i {
+  position: absolute;
+  inset: 0;
+  border: 2px solid #fff;
+  transition: 0.5s;
+}
+.ring i:nth-child(1) {
+  border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
+  animation: animate 6s linear infinite;
+}
+.ring i:nth-child(2) {
+  border-radius: 41% 44% 56% 59%/38% 62% 63% 37%;
+  animation: animate 4s linear infinite;
+}
+.ring i:nth-child(3) {
+  border-radius: 41% 44% 56% 59%/38% 62% 63% 37%;
+  animation: animate2 10s linear infinite;
+}
+.ring:hover i {
+  border: 6px solid var(--clr);
+  filter: drop-shadow(0 0 20px var(--clr));
+}
+@keyframes animate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes animate2 {
+  0% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+.login {
+  position: absolute;
+  width: 300px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+}
+.login h2 {
+  font-size: 2em;
+  color: #fff;
+}
+.login .inputBx {
+  position: relative;
+  width: 100%;
+}
+.login .inputBx input {
+  position: relative;
+  width: 100%;
+  padding: 12px 20px;
+  background: transparent;
+  border: 2px solid #fff;
+  border-radius: 15px;
+  font-size: 1.2em;
+  color: #fff;
+  box-shadow: none;
+  outline: none;
+}
+.login .inputBx input[type="submit"] {
+  width: 100%;
+  background: #0078ff;
+  background: linear-gradient(45deg, #ff357a, #fff172);
+  border: none;
+  cursor: pointer;
+}
+.login .inputBx input::placeholder {
+  color: rgba(255, 255, 255, 0.75);
+}
+.login .links {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+}
+.login .links a {
+  color: #fff;
+  text-decoration: none;
 }
