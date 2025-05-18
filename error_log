@@ -1,0 +1,9 @@
+[24-Aug-2022 14:42:03 UTC] PHP Fatal error:  Uncaught InvalidArgumentException: .env values containing spaces must be surrounded by quotes. in /home/vipfucki/public_html/fcku.tk/vendor/codeigniter4/framework/system/Config/DotEnv.php:172
+Stack trace:
+#0 /home/vipfucki/public_html/fcku.tk/vendor/codeigniter4/framework/system/Config/DotEnv.php(122): CodeIgniter\Config\DotEnv->sanitizeValue('ur database her...')
+#1 /home/vipfucki/public_html/fcku.tk/vendor/codeigniter4/framework/system/Config/DotEnv.php(75): CodeIgniter\Config\DotEnv->normaliseVariable('database.defaul...')
+#2 /home/vipfucki/public_html/fcku.tk/vendor/codeigniter4/framework/system/Config/DotEnv.php(43): CodeIgniter\Config\DotEnv->parse()
+#3 /home/vipfucki/public_html/fcku.tk/vendor/codeigniter4/framework/system/bootstrap.php(130): CodeIgniter\Config\DotEnv->load()
+#4 /home/vipfucki/public_html/fcku.tk/index.php(28): require('/home/vipfucki/...')
+#5 {main}
+  thrown in /home/vipfucki/public_html/fcku.tk/vendor/codeigniter4/framework/system/Config/DotEnv.php on line 172
